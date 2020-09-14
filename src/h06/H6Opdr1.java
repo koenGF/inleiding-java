@@ -3,7 +3,7 @@ package h06;
 import java.awt.*;
 import java.applet.*;
 
-public class Opdr1 extends Applet {
+public class H6Opdr1 extends Applet {
     double geld;
     int mensen;
     double uitkomst;
