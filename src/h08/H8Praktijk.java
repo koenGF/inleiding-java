@@ -17,6 +17,10 @@ public class H8Praktijk extends Applet {
     int divideIs;
     int plusIs;
     int minusIs;
+    String multiplyIsString;
+    String divideIsString;
+    String plusIsString;
+    String minusIsString;
 
     public void init() {
         tekstvak1 = new TextField("getal 1", 10);
@@ -37,15 +41,13 @@ public class H8Praktijk extends Applet {
         add(knopMinus);
     }
 
-
-    //klaar als ik weet hoe een int in een tekstvak komt.
-
     class KnopMultiplyListener implements ActionListener	{
         public void actionPerformed( ActionEvent e ) {
             getal1 = Integer.parseInt(tekstvak1.getText());
             getal2 = Integer.parseInt(tekstvak2.getText());
             multiplyIs = getal1 * getal2;
-            tekstvak1.setText("");
+            multiplyIsString = Integer.toString(multiplyIs);
+            tekstvak1.setText(multiplyIsString);
             tekstvak2.setText("");
             repaint();
         }
@@ -55,7 +57,8 @@ public class H8Praktijk extends Applet {
             getal1 = Integer.parseInt(tekstvak1.getText());
             getal2 = Integer.parseInt(tekstvak2.getText());
             divideIs = getal1 / getal2;
-            tekstvak1.setText("");
+            divideIsString = Integer.toString(divideIs);
+            tekstvak1.setText(divideIsString);
             tekstvak2.setText("");
             repaint();
         }
@@ -65,7 +68,8 @@ public class H8Praktijk extends Applet {
             getal1 = Integer.parseInt(tekstvak1.getText());
             getal2 = Integer.parseInt(tekstvak2.getText());
             plusIs = getal1 + getal2;
-            tekstvak1.setText("");
+            plusIsString = Integer.toString(plusIs);
+            tekstvak1.setText(plusIsString);
             tekstvak2.setText("");
             repaint();
         }
@@ -75,7 +79,8 @@ public class H8Praktijk extends Applet {
             getal1 = Integer.parseInt(tekstvak1.getText());
             getal2 = Integer.parseInt(tekstvak2.getText());
             minusIs = getal1 - getal2;
-            tekstvak1.setText("");
+            minusIsString = Integer.toString(minusIs);
+            tekstvak1.setText(minusIsString);
             tekstvak2.setText("");
             repaint();
         }
