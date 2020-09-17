@@ -6,21 +6,21 @@ import java.awt.event.*;
 
 
 public class H8Opdr2 extends Applet {
-    Button Man, Vrouw, PotentielMan, PotentielVrouw;
+    Button buttonMan, Vrouw, PotentielMan, PotentielVrouw;
     int man, vrouw, potentielMan, potentielVrouw, totaal;
     TextField tekstveld;
 
     public void init() {
         tekstveld = new TextField(50);
-        Man = new Button("Man");
+        buttonMan = new Button("Man");
         Vrouw = new Button("Vrouw");
         PotentielMan = new Button("Potentiele Man");
         PotentielVrouw = new Button("Potentiele Vrouw");
-        Man.addActionListener( new ManListener() );
+        buttonMan.addActionListener( new ManListener() );
         Vrouw.addActionListener( new VrouwListener() );
         PotentielMan.addActionListener( new PotentielManListener() );
         PotentielVrouw.addActionListener( new PotentielVrouwListener() );
-        add(Man);
+        add(buttonMan);
         add(Vrouw);
         add(PotentielMan);
         add(PotentielVrouw);
