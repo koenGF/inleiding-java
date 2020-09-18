@@ -5,22 +5,11 @@ import java.applet.*;
 import java.awt.event.*;
 
 public class H8Praktijk extends Applet {
-    TextField tekstvak1;
-    TextField tekstvak2;
-    Button knopMultiply;
-    Button knopDivide;
-    Button knopPlus;
-    Button knopMinus;
-    int getal1;
-    int getal2;
-    int multiplyIs;
-    int divideIs;
-    int plusIs;
-    int minusIs;
-    String multiplyIsString;
-    String divideIsString;
-    String plusIsString;
-    String minusIsString;
+    TextField tekstvak1, tekstvak2;
+    Button knopMultiply, knopDivide, knopPlus, knopMinus;
+    int getal1, getal2, multiplyIs, divideIs, plusIs, minusIs;
+    String multiplyIsString, divideIsString, plusIsString, minusIsString;
+
 
     public void init() {
         tekstvak1 = new TextField("getal 1", 10);
