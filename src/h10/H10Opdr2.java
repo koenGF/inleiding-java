@@ -33,6 +33,8 @@ public class H10Opdr2 extends Applet {
 
     class VakListener implements ActionListener {
         public void actionPerformed( ActionEvent e ) {
+
+            //HIGH
             String getalString, prevHighGetalString, prevLowGetalString;
             getalString = tekstvak.getText();
             getal = Integer.parseInt( getalString );
@@ -46,6 +48,9 @@ public class H10Opdr2 extends Applet {
                 highTekst = "hoogste getal is: " + prevHighGetalString;
                 highLabel.setText(prevHighGetalString);
             }
+
+
+            //LOW
             prevLowGetalString = lowLabel.getText();
             prevLowGetal = Integer.parseInt(prevLowGetalString);
 
