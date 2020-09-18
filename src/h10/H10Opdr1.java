@@ -7,7 +7,7 @@ import java.awt.event.*;
 
 public class H10Opdr1 extends Applet {
 
-    int getal,a,b,c,d,e;
+    int getal,a,b,c,d;
     TextField tekstvak;
     String tekst;
     Label label1, label2, label3, label4;
