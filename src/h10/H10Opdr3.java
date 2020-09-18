@@ -1,5 +1,3 @@
-//TODO: dagen en maanden in switch
-
 package h10;
 
 import java.awt.*;
@@ -13,6 +11,10 @@ public class H10Opdr3 extends Applet{
 
     public void init() {
         tekstvak = new TextField("",5);
+        tekstvak.addActionListener( new TekstvakListener() );
+        add(tekstvak);
+        maand = "???";
+        dagen = "???";
     }
 
     public void paint (Graphics g){
@@ -25,33 +27,54 @@ public class H10Opdr3 extends Applet{
             switch(maandGetal) {
                 case 1:
                     maand = "Januari";
+                    dagen = "31";
                     break;
                 case 2:
                     maand = "Februari";
+                    dagen = "28/29";
                     break;
                 case 3:
                     maand = "Maart";
+                    dagen = "31";
                     break;
                 case 4:
                     maand = "April";
+                    dagen = "30";
                     break;
                 case 5:
                     maand = "Mei";
+                    dagen = "31";
                     break;
                 case 6:
                     maand = "Juni";
+                    dagen = "30";
                     break;
                 case 7:
                     maand = "Juli";
+                    dagen = "31";
                     break;
                 case 8:
                     maand = "Augustus";
+                    dagen = "31";
                     break;
                 case 9:
                     maand = "September";
+                    dagen = "30";
+                    break;
+                case 10:
+                    maand = "Oktober";
+                    dagen = "31";
+                    break;
+                case 11:
+                    maand = "November";
+                    dagen = "30";
+                case 12:
+                    maand = "December";
+                    dagen = "31";
                     break;
                 default:
                     maand = "???";
+                    dagen= "???";
                     break;
             }
             repaint();
