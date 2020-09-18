@@ -7,24 +7,19 @@ import java.awt.event.*;
 
 public class H10Opdr1 extends Applet {
 
-    int getal,a,b,c,d;
+    int getal, prevGetal;
     TextField tekstvak;
     String tekst;
-    Label label1, label2, label3, label4;
+    Label label;
 
     public void init() {
         tekstvak = new TextField("", 5);
         tekstvak.addActionListener( new VakListener() );
-        label1 = new Label("");
-        label2 = new Label("");
-        label3 = new Label("");
-        label4 = new Label("");
+        label = new Label("0");
         tekst = "";
         add( tekstvak );
-        add(label1);
-        add(label2);
-        add(label3);
-        add(label4);
+        add(label);
+
 
     }
 
@@ -35,14 +30,18 @@ public class H10Opdr1 extends Applet {
 
     class VakListener implements ActionListener {
         public void actionPerformed( ActionEvent e ) {
-            String s;
-            s = tekstvak.getText();
-            getal = Integer.parseInt( s );
-            if ( getal > a && getal> b && getal > c && getal > d) {
-                tekst = "hoera";
+            String getalString, prevGetalString;
+            getalString = tekstvak.getText();
+            getal = Integer.parseInt( getalString );
+            prevGetalString = label.getText();
+            prevGetal = Integer.parseInt(prevGetalString);
+            if ( getal > prevGetal) {
+                tekst = "hoogste getal is: " + getalString;
+                label.setText(getalString);
             }
             else {
-                tekst = "bleh";
+                tekst = "hoogste getal is: " + prevGetalString;
+                label.setText(prevGetalString);
             }
             repaint();
         }
