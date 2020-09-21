@@ -1,4 +1,3 @@
-//TODO rename tekstvaklistener naar maand en jaar listener
 package h10;
 
 import java.awt.*;
@@ -7,16 +6,18 @@ import java.awt.event.*;
 
 public class H10Opdr4 extends Applet{
     TextField tekstvakMaand, tekstvakJaar;
-    String maand, dagen, s;
-    int maandGetal;
+    String maand, dagen, m,j;
+    int maandGetal,jaarGetal;
+    Button button;
 
     public void init() {
         tekstvakMaand = new TextField("month",5);
-        tekstvakMaand.addActionListener( new TekstvakListener() );
         tekstvakJaar = new TextField("Jaar",5);
-        tekstvakJaar.addActionListener( new TekstvakListener() );
+        button = new Button("OK");
+        button.addActionListener(new buttonListener() );
         add(tekstvakMaand);
         add(tekstvakJaar);
+        add(button);
         maand = "???";
         dagen = "???";
     }
@@ -24,23 +25,28 @@ public class H10Opdr4 extends Applet{
     public void paint (Graphics g){
         g.drawString(maand + ", heeft " + dagen + " dagen.",50,50);
     }
-    class TekstvakListener implements ActionListener {
+    class buttonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            s = tekstvakMaand.getText();
-            maandGetal = Integer.parseInt( s);
+            m = tekstvakMaand.getText();
+            maandGetal = Integer.parseInt(m);
+            j = tekstvakJaar.getText();
+            jaarGetal = Integer.parseInt(j);
             switch(maandGetal) {
                 case 1:
                     maand = "Januari";
                     dagen = "31";
                     break;
+
                 case 2:
                     maand = "Februari";
+                    if ( (jaarGetal % 4 == 0 && !(jaarGetal % 100 == 0)) ||
+                            jaarGetal % 400 == 0 ) {
+                    dagen = "29" ;
+                    }
+                    else {
+                        dagen= "28";
+                    }
 
-
-
-
-
-                    //dagen = "28/29";
                     break;
                 case 3:
                     maand = "Maart";
