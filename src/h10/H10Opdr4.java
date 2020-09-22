@@ -12,7 +12,7 @@ public class H10Opdr4 extends Applet{
 
     public void init() {
         tekstvakMaand = new TextField("month",5);
-        tekstvakJaar = new TextField("Jaar",5);
+        tekstvakJaar = new TextField("year",5);
         button = new Button("OK");
         button.addActionListener(new buttonListener() );
         add(tekstvakMaand);

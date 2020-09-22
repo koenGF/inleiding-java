@@ -7,23 +7,23 @@ import java.awt.event.*;
 public class H10Opdr5 extends Applet {
 TextField tekstvak;
 String tekst, g;
-int getal;
+Double getal;
 
     public void init() {
         tekstvak = new TextField("",5);
-        tekstvak.addActionListener( new VakListener() );
+        tekstvak.addActionListener( new tekstvakListener() );
         add(tekstvak);
         tekst = "";
     }
 
     public void paint (Graphics g) {
-        g.drawString(tekst,20,20);
+        g.drawString(tekst,50,50);
     }
-    class VakListener implements ActionListener {
-        public void actionperformed(ActionEvent e) {
+    class tekstvakListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
             g = tekstvak.getText();
-            getal = Integer.parseInt(g);
-            if(getal >= 5.5 ) {
+            getal = Double.parseDouble(g);
+            if ( getal > 5 ) {
                 tekst = "voldoende";
             }
             else {
