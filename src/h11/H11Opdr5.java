@@ -1,3 +1,4 @@
+//kon waarschijnlijk veel makkelijker als ik gewoon drawRect had gebruikt en die dan had verschoven. ach ja
 package h11;
 
 import java.awt.*;
