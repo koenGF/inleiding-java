@@ -9,13 +9,17 @@ public class H11Opdr3 extends Applet {
     public void init() {}
 
     public void paint(Graphics g) {
-        int teller = 1;
-        int x = 0;
+        int prev2Getal = 1, prevGetal = 1, currentGetal, x = 60;
 
-        while(teller < 100) {
+        g.drawString("" + prev2Getal,20,20);
+        g.drawString("" + prevGetal,40,20);
+        while(true) {
+            currentGetal = prevGetal + prev2Getal;
+            if (currentGetal > 200) break;
+            g.drawString("" + currentGetal, x, 20 );
             x += 20;
-            g.drawString("" + teller, x, 20 );
-            teller += teller;
+            prev2Getal = prevGetal;
+            prevGetal = currentGetal;
         }
     }
 }
