@@ -11,7 +11,7 @@ public class H8Opdr2ALT extends Applet {
 
     public void init() {
         Man = new Button("+1 Man");
-        Vrouw = new Button("+1Vrouw");
+        Vrouw = new Button("+1 Vrouw");
         PotentielMan = new Button("+1 Potentiele Man");
         PotentielVrouw = new Button("+1 Potentiele Vrouw");
         Man.addActionListener( new ManListener() );
