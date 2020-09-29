@@ -19,9 +19,9 @@ public class H11Praktijk1 extends Applet {
     }
 
     public void paint(Graphics g) {
-        int y = 50,keer = 1, result = 0;
+        int y = 50,keer = 1, result;
 
-        while(result < 100) {
+        while(keer <= 10 && tafel <= 10) {
             y+= 20;
             result = keer * tafel;
             g.drawString(keer + " x " + tafel + " = " + result,50,y);
