@@ -30,8 +30,7 @@ public class H11Praktijk1 extends Applet {
     }
     class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            String s;
-            s = tekstvak.getText();
+            String s = tekstvak.getText();
             tafel = Integer.parseInt(s);
             repaint();
         }
