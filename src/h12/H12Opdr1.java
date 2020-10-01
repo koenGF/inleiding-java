@@ -15,9 +15,9 @@ public class H12Opdr1 extends Applet {
         for (int teller = 0; teller < getallen.length; teller ++) {
             g.drawString("" + getallen[teller], 50, 20 * teller + 20);
 
-            int totaal = getallen[teller] += ;
-            int gemiddelde = totaal / getallen.length;
-            g.drawString("het gemiddelde is" + gemiddelde,50,200);
+            //int totaal = getallen[teller] += ;
+            //int gemiddelde = totaal / getallen.length;
+            //g.drawString("het gemiddelde is" + gemiddelde,50,200);
         }
     }
 }
