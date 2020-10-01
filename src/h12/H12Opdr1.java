@@ -4,20 +4,20 @@ import java.awt.*;
 import java.applet.*;
 
 public class H12Opdr1 extends Applet {
-    int[] getallen = {50,37,48,19,48,30,11,70,135,456};
+    int[] getallen = {1,2,3,4,5,6};
+    double totaal;
 
     public void init() {
-        getallen = new int [10];
-
+        totaal = 0;
     }
 
     public void paint(Graphics g) {
         for (int teller = 0; teller < getallen.length; teller ++) {
             g.drawString("" + getallen[teller], 50, 20 * teller + 20);
 
-            //int totaal = getallen[teller] += ;
-            //int gemiddelde = totaal / getallen.length;
-            //g.drawString("het gemiddelde is" + gemiddelde,50,200);
+            totaal += getallen[teller];
         }
+        double gemiddelde = totaal / getallen.length;
+        g.drawString("het gemiddelde is" + gemiddelde,50,getallen.length * 20 + 40);
     }
 }
