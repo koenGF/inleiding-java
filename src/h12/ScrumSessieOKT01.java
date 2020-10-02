@@ -24,6 +24,7 @@ TextField tekstvak;
     public void paint(Graphics g) {
         g.drawString("" + teller, 50, y );
     }
+
     class TekstvakListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String s = tekstvak.getText();

@@ -5,10 +5,9 @@ import java.applet.*;
 
 public class H12Opdr1 extends Applet {
     int[] getallen = {1,2,3,4,5,6};
-    double totaal;
+    double totaal = 0;
 
     public void init() {
-        totaal = 0;
     }
 
     public void paint(Graphics g) {
