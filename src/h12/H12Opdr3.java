@@ -15,7 +15,7 @@ public class H12Opdr3 extends Applet {
     int[] getallen = {i0,i1,i2,i3,i4};
     TextField[] tekstvakken;
     Button OK;
-    String s0,s1,s2,s3,s4;
+    String s0,s1,s2,s3,s4, result0,result1,result2,result3,result4;
 
     public void init() {
         tekstvakken = new TextField[5];
@@ -42,6 +42,16 @@ public class H12Opdr3 extends Applet {
             i2 = Integer.parseInt(s2);
             i3 = Integer.parseInt(s3);
             i4 = Integer.parseInt(s4);
+            result0 = Integer.toString(getallen[0]);
+            result1 = Integer.toString(getallen[1]);
+            result2 = Integer.toString(getallen[2]);
+            result3 = Integer.toString(getallen[3]);
+            result4 = Integer.toString(getallen[4]);
+            tekstvakken[0].setText(result0);
+            tekstvakken[1].setText(result1);
+            tekstvakken[2].setText(result2);
+            tekstvakken[3].setText(result3);
+            tekstvakken[4].setText(result4);
         }
     }
 }
