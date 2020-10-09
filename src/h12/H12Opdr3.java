@@ -1,9 +1,9 @@
 package h12;
 /*
-DONE 5 tekstvakken met getallen in array, OK-knop.
-DONE button listener.
-parse als int. (maak int array, sort?)
-sorteren van getallen, toon in tekstvakken
+5 tekstvakken met getallen in array, OK-knop.
+button listener.
+parse als int. maak int array, sort
+verander in string, toon in tekstvakken
 */
 import java.awt.*;
 import java.applet.*;
@@ -11,8 +11,8 @@ import java.awt.event.*;
 import java.util.*;
 
 public class H12Opdr3 extends Applet {
-    int teller = 0, i0,i1,i2,i3,i4;
-    int[] getallen = {i0,i1,i2,i3,i4};
+    int teller = 0;
+    int[] getallen = {0,0,0,0,0};
     TextField[] tekstvakken;
     Button OK;
     String s0,s1,s2,s3,s4, result0,result1,result2,result3,result4;
@@ -27,7 +27,6 @@ public class H12Opdr3 extends Applet {
             teller++;
         }
         add(OK);
-        Arrays.sort(getallen);
     }
 
     class KnopListener implements ActionListener {
@@ -37,11 +36,12 @@ public class H12Opdr3 extends Applet {
             s2 = tekstvakken[2].getText();
             s3 = tekstvakken[3].getText();
             s4 = tekstvakken[4].getText();
-            i0 = Integer.parseInt(s0);
-            i1 = Integer.parseInt(s1);
-            i2 = Integer.parseInt(s2);
-            i3 = Integer.parseInt(s3);
-            i4 = Integer.parseInt(s4);
+            getallen[0] = Integer.parseInt(s0);
+            getallen[1] = Integer.parseInt(s1);
+            getallen[2] = Integer.parseInt(s2);
+            getallen[3] = Integer.parseInt(s3);
+            getallen[4] = Integer.parseInt(s4);
+            Arrays.sort(getallen);
             result0 = Integer.toString(getallen[0]);
             result1 = Integer.toString(getallen[1]);
             result2 = Integer.toString(getallen[2]);
