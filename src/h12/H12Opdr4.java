@@ -12,8 +12,7 @@ teller++ y+=20
 */
 import java.awt.*;
 import java.applet.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class H12Opdr4 extends Applet {
     int[] getallen = {2,5,15,17};

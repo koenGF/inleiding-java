@@ -5,8 +5,7 @@ hij stopt volgens mij al als hij het goede getal heeft gevonden. zit break; onde
 */
 import java.awt.*;
 import java.applet.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class H12Opdr5 extends Applet {
     int[] getallen = {2,5,15,17};
