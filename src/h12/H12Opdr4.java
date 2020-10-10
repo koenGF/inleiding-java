@@ -6,22 +6,24 @@ DONE zoek getal in tekstvak in array
 true: print "found" en array
 false: print "not found"
 
-if else/switch met boolean is wss mooier
- */
+if boolean true:
+print getallen[teller]
+teller++ y+=20
+*/
 import java.awt.*;
 import java.applet.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class H12Opdr4 extends Applet {
-    int y=20;
-    int[] getallen = {2,5,13,15};
-    String gevondenTekst, array;
+    int[] getallen = {2,5,15,17};
+    boolean gevonden = false;
+    String gevondenTekst = "";
     TextField tekstvak;
     Button knop;
 
     public void init() {
-        tekstvak = new TextField ("", 5);
+        tekstvak = new TextField ("0", 5);
         knop = new Button("OK");
         knop.addActionListener(new KnopListener());
         add(tekstvak);
@@ -29,25 +31,31 @@ public class H12Opdr4 extends Applet {
     }
 
     public void paint(Graphics g) {
-        g.drawString("test" + gevondenTekst,50,50);
+        int drawTeller, y=70;
+        g.drawString("" + gevondenTekst,150,50);
+
+        if (gevonden) {
+        for(drawTeller = 0; drawTeller < getallen.length; drawTeller++) {
+            y += 20;
+            g.drawString("" + getallen[drawTeller], 150, y);
+            }
+        }
     }
 
     class KnopListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            int teller = 0;
-            int gezocht;
-            boolean gevonden = false;
+            int gezocht,teller=0;
             String s = tekstvak.getText();
             gezocht = Integer.parseInt(s);
             while(teller < getallen.length) {
                 if(getallen[teller] == gezocht) {
                     gevonden = true;
-                    gevondenTekst = "yippie";
+                    gevondenTekst = s + " was found in the array";
                     break;
                 }
                 else {
                     gevonden = false;
-                    gevondenTekst = "noo";
+                    gevondenTekst = s+ " was not found in the array";
                     teller++;
                 }
             }
