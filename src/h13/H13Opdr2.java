@@ -20,18 +20,18 @@ public class H13Opdr2 extends Applet {
         setBackground(Color.red);
         while(true) {
             g.drawRect(posX1,posY1,x,y);
-            posY1 += 80;
+            posY1 += y * 2;
             if(posY1 >= 600) {
-                posX1 += 100;
+                posX1 += x;
                 posY1 = 0;
                 if(posX1 >= 600) break;
             }
         }
         while(true) {
             g.drawRect(posX2, posY2, x, y);
-            posY2 += 80;
+            posY2 += y * 2;
             if (posY2 >= 600) {
-                posX2 += 100;
+                posX2 += x;
                 posY2 = 40;
                 if (posX2 >= 600) break;
             }
