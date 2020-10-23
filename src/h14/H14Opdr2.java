@@ -6,6 +6,8 @@ speel applaus.wav als het klaar is.
 DONE deel kaart
 voeg kaart toe aan speler1.
 als speler1 array vol is, ga naar speler2, etc.
+als speler4[13] gevuld is:
+teken speler1/2/3/4 arrays op scherm en speel /resources/applaus.wav
  */
 import java.awt.*;
 import java.applet.*;
