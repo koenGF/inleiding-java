@@ -86,6 +86,7 @@ public class H14Praktijk extends Applet {
         public void actionPerformed(ActionEvent e) {
         aantalDonuts = 23;
         tekstvak.setText("");
+        computerTurn = "";
         repaint();
         }
     }
