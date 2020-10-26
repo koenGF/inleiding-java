@@ -3,13 +3,13 @@ package h14;
 DONE maak tekstvak & methode om donuts te tekenen.
 DONE tel aantal in tekstvak af van totaal donuts
 DONE bij 0, stop spel
+
 maak switch voor aantal donuts, kies zo wat de computer doet.
 
 OF
+
 maak loop.
 als aantalDonuts - 1 % 4, doe dat
-
-computer turn werkt nu niet
  */
 import java.awt.*;
 import java.applet.*;
@@ -19,13 +19,17 @@ public class H14Praktijk extends Applet {
     int aantalDonuts = 23;
     TextField tekstvak;
     Label label;
+    Button knop;
 
     public void init() {
         label = new Label("1, 2 of 3 donuts?");
         tekstvak = new TextField ("", 10);
+        knop = new Button ("try again");
         tekstvak.addActionListener(new TekstvakListener());
+        knop.addActionListener(new KnopListener());
         add(label);
         add(tekstvak);
+        add(knop);
     }
 
     public void paint(Graphics g) {
@@ -45,14 +49,15 @@ public class H14Praktijk extends Applet {
             String s = tekstvak.getText();
             int donutsTaken = Integer.parseInt(s);
 //check getal
-            if (donutsTaken >= 1 && donutsTaken <= 3)
-            {
+            if (donutsTaken >= 1 && donutsTaken <= 3) {
                 aantalDonuts = aantalDonuts - donutsTaken;
 //computer turn
-                for (int i = 1; i <= 3 ; i++) {
-                    int testDonut = aantalDonuts - i;
-                    if(testDonut - 1 % 4 <=0) {
-                        aantalDonuts -= i;
+                if(aantalDonuts > 0) {
+                    for (int i = 1; i <= 3; i++) {
+                        int testDonut = aantalDonuts - i;
+                        if ((testDonut - 1) % 4 <= 0) {
+                            aantalDonuts -= i;
+                        }
                     }
                 }
                 repaint();
@@ -63,7 +68,14 @@ public class H14Praktijk extends Applet {
         }
     }
 
-    public void tekenDonut( Graphics g,int x, int y) {
+    class KnopListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        aantalDonuts = 23;
+        tekstvak.setText("");
+        repaint();
+        }
+    }
+            public void tekenDonut( Graphics g,int x, int y) {
         g.setColor(Color.pink);
         g.fillOval(x,y,60,60);
         g.setColor(Color.white);
