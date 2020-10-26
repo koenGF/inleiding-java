@@ -52,6 +52,7 @@ public class H14Praktijk extends Applet {
             if (donutsTaken >= 1 && donutsTaken <= 3) {
                 aantalDonuts = aantalDonuts - donutsTaken;
 //computer turn
+    //aantalDonuts >5
                 if(aantalDonuts > 5) {
                     for (int i = 1; i <= 3; i++) {
                         int testDonut = aantalDonuts - i;
@@ -60,7 +61,7 @@ public class H14Praktijk extends Applet {
                         }
                     }
                 }
-//aantalDonuts < 5
+    //aantalDonuts < 5
                 if(aantalDonuts > 1 && aantalDonuts < 5) {
                     aantalDonuts = 1;
                 }
