@@ -24,7 +24,7 @@ public class H14Praktijk extends Applet {
     public void init() {
         label = new Label("1, 2 of 3 donuts?");
         tekstvak = new TextField ("", 10);
-        knop = new Button ("try again");
+        knop = new Button ("reset");
         tekstvak.addActionListener(new TekstvakListener());
         knop.addActionListener(new KnopListener());
         add(label);
