@@ -89,7 +89,7 @@ public class H14Praktijk extends Applet {
         repaint();
         }
     }
-            public void tekenDonut( Graphics g,int x, int y) {
+    public void tekenDonut( Graphics g,int x, int y) {
         g.setColor(Color.pink);
         g.fillOval(x,y,60,60);
         g.setColor(Color.white);
