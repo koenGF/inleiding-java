@@ -60,17 +60,19 @@ public class H14Praktijk extends Applet {
                         }
                     }
                 }
+//aantalDonuts < 5
                 else {
                     aantalDonuts = 1;
                 }
                 repaint();
             }
+//fout getal
             else {
                 tekstvak.setText("fout getal");
             }
         }
     }
-
+//resetknop
     class KnopListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         aantalDonuts = 23;
