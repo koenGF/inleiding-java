@@ -17,6 +17,7 @@ import java.awt.event.*;
 
 public class H14Praktijk extends Applet {
     int aantalDonuts = 23;
+    String computerTurn = "";
     TextField tekstvak;
     Label label;
     Button knop;
@@ -35,6 +36,7 @@ public class H14Praktijk extends Applet {
     public void paint(Graphics g) {
 //teken donuts
         g.drawString("er zijn " + aantalDonuts + " donuts.",5,50);
+        g.drawString(computerTurn,5,70);
         for (int i = 0, x = 10; i < aantalDonuts; i++, x+=65) {
             tekenDonut(g, x,100);
         }
@@ -52,18 +54,23 @@ public class H14Praktijk extends Applet {
             if (donutsTaken >= 1 && donutsTaken <= 3) {
                 aantalDonuts = aantalDonuts - donutsTaken;
 //computer turn
-    //aantalDonuts >5
+    //aantalDonuts > 5
                 if(aantalDonuts > 5) {
                     for (int i = 1; i <= 3; i++) {
                         int testDonut = aantalDonuts - i;
                         if ((testDonut - 1) % 4 <= 0) {
                             aantalDonuts -= i;
+                            computerTurn = "de computer heeft " + i + " donuts genomen.";
                         }
                     }
                 }
     //aantalDonuts < 5
-                if(aantalDonuts > 1 && aantalDonuts < 5) {
-                    aantalDonuts = 1;
+                for (int i = 1; i <= 3; i++) {
+                    int testDonut = aantalDonuts - i;
+                    if (testDonut == 1) {
+                        aantalDonuts -= i;
+                        computerTurn = "de computer heeft " + i + " donuts genomen.";
+                    }
                 }
                 repaint();
             }
@@ -73,7 +80,8 @@ public class H14Praktijk extends Applet {
             }
         }
     }
-//resetknop
+
+    //resetknop
     class KnopListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         aantalDonuts = 23;
