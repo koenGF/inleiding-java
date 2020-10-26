@@ -1,16 +1,5 @@
 package h14;
-/*
-DONE maak tekstvak & methode om donuts te tekenen.
-DONE tel aantal in tekstvak af van totaal donuts
-DONE bij 0, stop spel
 
-maak loop.
-als aantalDonuts - 1 % 4, doe dat
-
-
-
-hele rommelige code, maar werkt
- */
 import java.awt.*;
 import java.applet.*;
 import java.awt.event.*;
@@ -24,7 +13,7 @@ public class H14Praktijk extends Applet {
 
     public void init() {
         label = new Label("1, 2 of 3 donuts?");
-        tekstvak = new TextField ("", 10);
+        tekstvak = new TextField ("", 12);
         knop = new Button ("reset");
         tekstvak.addActionListener(new TekstvakListener());
         knop.addActionListener(new KnopListener());
@@ -34,15 +23,11 @@ public class H14Praktijk extends Applet {
     }
 
     public void paint(Graphics g) {
-//teken donuts
         g.drawString("er zijn " + aantalDonuts + " donuts.",5,50);
         g.drawString(computerTurn,5,70);
+//teken donuts
         for (int i = 0, x = 10; i < aantalDonuts; i++, x+=65) {
             tekenDonut(g, x,100);
-        }
-//einde spel
-        if(aantalDonuts <= 0) {
-            tekstvak.setText("je hebt verloren!");
         }
     }
 
@@ -50,30 +35,47 @@ public class H14Praktijk extends Applet {
         public void actionPerformed(ActionEvent e) {
             String s = tekstvak.getText();
             int donutsTaken = Integer.parseInt(s);
+
 //check getal
             if (donutsTaken >= 1 && donutsTaken <= 3) {
                 aantalDonuts = aantalDonuts - donutsTaken;
-//computer turn
-    //aantalDonuts > 5
-                if(aantalDonuts > 5) {
+    //verliezer
+                if(aantalDonuts <= 0) {
+                    tekstvak.setText("je hebt verloren!");
+                    computerTurn = "";
+                }
+
+
+    //computer turn
+                if(aantalDonuts > 0) {
+                    int reserveDonut = aantalDonuts;
+
+        //winnende computer
                     for (int i = 1; i <= 3; i++) {
                         int testDonut = aantalDonuts - i;
-                        if ((testDonut - 1) % 4 <= 0) {
+                        if ((testDonut - 1) % 4 == 0 || testDonut == 1) {
                             aantalDonuts -= i;
-                            computerTurn = "de computer heeft " + i + " donuts genomen.";
+                            computerTurn = "de computer heeft " + i + " donut(s) genomen.";
                         }
                     }
-                }
-    //aantalDonuts < 5
-                for (int i = 1; i <= 3; i++) {
-                    int testDonut = aantalDonuts - i;
-                    if (testDonut == 1) {
-                        aantalDonuts -= i;
-                        computerTurn = "de computer heeft " + i + " donuts genomen.";
+
+        //verliezende computer
+                    if (reserveDonut == aantalDonuts) {
+                        double r = Math.random();
+                        int worp = (int) (r * 3 + 1);
+                        aantalDonuts -= worp;
+                        computerTurn = "de computer heeft " + worp + " donut(s) genomen.";
+                    }
+    //winnaar
+                    if(aantalDonuts <= 0) {
+                        tekstvak.setText("je hebt gewonnen!");
+                        computerTurn = "";
                     }
                 }
-                repaint();
+            repaint();
             }
+
+
 //fout getal
             else {
                 tekstvak.setText("fout getal");
@@ -81,7 +83,8 @@ public class H14Praktijk extends Applet {
         }
     }
 
-    //resetknop
+
+//resetknop
     class KnopListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         aantalDonuts = 23;
@@ -90,6 +93,8 @@ public class H14Praktijk extends Applet {
         repaint();
         }
     }
+
+//tekenDonut
     public void tekenDonut( Graphics g,int x, int y) {
         g.setColor(Color.pink);
         g.fillOval(x,y,60,60);
