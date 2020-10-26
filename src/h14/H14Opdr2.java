@@ -1,22 +1,15 @@
 package h14;
-/*
-verdeel een deck van 52 kaarten (geen jokers) over 4 spelers.
-speel applaus.wav als het klaar is.
 
-DONE deel kaart
-voeg kaart toe aan speler1.
-als speler1 array vol is, ga naar speler2, etc.
-als speler4[13] gevuld is:
-teken speler1/2/3/4 arrays op scherm en speel /resources/applaus.wav
- */
 import java.awt.*;
 import java.applet.*;
+import java.net.URL;
 import java.util.*;
-import java.awt.event.*;
 
 public class H14Opdr2 extends Applet {
-String[] speler1,speler2,speler3,speler4;
-String[] deck = {
+    private URL path;
+    private AudioClip sound;
+    String[] speler1,speler2,speler3,speler4;
+    String[] deck = {
         "harten aas", "harten 2", "harten 3", "harten 4", "harten 5", "harten 6", "harten 7",
         "harten 8", "harten 9", "harten 10", "harten boer", "harten koningin", "harten koning",
 
@@ -29,16 +22,35 @@ String[] deck = {
         "klaver aas", "klaver 2", "klaver 3", "klaver 4", "klaver 5", "klaver 6", "klaver 7",
         "klaver 8", "klaver 9", "klaver 10", "klaver boer", "klaver koningin", "klaver koning"
 };
-public void init() {
-    deelKaart();
-    speler1 = new String[13];
-    speler2 = new String[13];
-    speler3 = new String[13];
-    speler4 = new String[13];
+
+    public void init() {
+        speler1 = new String[13];
+        speler2 = new String[13];
+        speler3 = new String[13];
+        speler4 = new String[13];
+        path = H14Opdr2.class.getResource("/resources/");
+        sound = getAudioClip(path, "applaus.wav");
+
+        for(int i = 0; i < speler1.length; i++) {
+            speler1[i] = deelKaart();
+            speler2[i] = deelKaart();
+            speler3[i] = deelKaart();
+            speler4[i] = deelKaart();
+        }
     }
 
     public void paint(Graphics g) {
-
+        g.drawString("speler1",5,20);
+        g.drawString("speler2",155,20);
+        g.drawString("speler3",305,20);
+        g.drawString("speler4",455,20);
+        for (int i = 0,y1 = 50; i < speler1.length; i++,y1 += 20) {
+            g.drawString(speler1[i],5,y1);
+            g.drawString(speler2[i],155,y1);
+            g.drawString(speler3[i],305,y1);
+            g.drawString(speler4[i],455,y1);
+        }
+        sound.play();
     }
 
     private String deelKaart() {
