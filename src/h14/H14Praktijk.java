@@ -52,13 +52,16 @@ public class H14Praktijk extends Applet {
             if (donutsTaken >= 1 && donutsTaken <= 3) {
                 aantalDonuts = aantalDonuts - donutsTaken;
 //computer turn
-                if(aantalDonuts > 0) {
+                if(aantalDonuts > 5) {
                     for (int i = 1; i <= 3; i++) {
                         int testDonut = aantalDonuts - i;
                         if ((testDonut - 1) % 4 <= 0) {
                             aantalDonuts -= i;
                         }
                     }
+                }
+                else {
+                    aantalDonuts = 1;
                 }
                 repaint();
             }
