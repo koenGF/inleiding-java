@@ -4,12 +4,12 @@ DONE maak tekstvak & methode om donuts te tekenen.
 DONE tel aantal in tekstvak af van totaal donuts
 DONE bij 0, stop spel
 
-maak switch voor aantal donuts, kies zo wat de computer doet.
-
-OF
-
 maak loop.
 als aantalDonuts - 1 % 4, doe dat
+
+
+
+hele rommelige code, maar werkt
  */
 import java.awt.*;
 import java.applet.*;
