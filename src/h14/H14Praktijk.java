@@ -61,7 +61,7 @@ public class H14Praktijk extends Applet {
                     }
                 }
 //aantalDonuts < 5
-                else {
+                if(aantalDonuts > 1 && aantalDonuts < 5) {
                     aantalDonuts = 1;
                 }
                 repaint();
