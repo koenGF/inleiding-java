@@ -34,7 +34,13 @@ public class H14Praktijk extends Applet {
     class TekstvakListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String s = tekstvak.getText();
-            int donutsTaken = Integer.parseInt(s);
+            int donutsTaken;
+            try {
+                donutsTaken = Integer.parseInt(s);
+            } catch (Exception f){
+                 donutsTaken = 4;
+            }
+
 
 //check getal
             if (donutsTaken >= 1 && donutsTaken <= 3) {
@@ -44,8 +50,6 @@ public class H14Praktijk extends Applet {
                     tekstvak.setText("je hebt verloren!");
                     computerTurn = "";
                 }
-
-
     //computer turn
                 if(aantalDonuts > 0) {
                     int reserveDonut = aantalDonuts;
@@ -66,7 +70,7 @@ public class H14Praktijk extends Applet {
                         aantalDonuts -= worp;
                         computerTurn = "de computer heeft " + worp + " donut(s) genomen.";
                     }
-    //winnaar
+        //winnaar
                     if(aantalDonuts <= 0) {
                         tekstvak.setText("je hebt gewonnen!");
                         computerTurn = "";
@@ -78,7 +82,7 @@ public class H14Praktijk extends Applet {
 
 //fout getal
             else {
-                tekstvak.setText("fout getal");
+                tekstvak.setText("verkeerde invoer (getal 1-3)");
             }
         }
     }
