@@ -26,23 +26,27 @@ public class H14Praktijk extends Applet {
         g.drawString("er zijn " + aantalDonuts + " donuts.",5,50);
         g.drawString(computerTurn,5,70);
 //teken donuts
-        for (int i = 0, x = 10; i < aantalDonuts; i++, x+=65) {
-            tekenDonut(g, x,100);
+        for (int i = 0, x = 10, y = 75; i < aantalDonuts; i++, x+=65) {
+            if (i % 6 == 0 && i != 0) {
+                y+=65;
+                x = 10;
+            }
+            tekenDonut(g, x, y);
         }
     }
+
 
     class TekstvakListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String s = tekstvak.getText();
             int donutsTaken;
+
+//check getal
             try {
                 donutsTaken = Integer.parseInt(s);
             } catch (Exception f){
-                 donutsTaken = 4;
+                donutsTaken = 4;
             }
-
-
-//check getal
             if (donutsTaken >= 1 && donutsTaken <= 3) {
                 aantalDonuts = aantalDonuts - donutsTaken;
     //verliezer
